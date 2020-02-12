@@ -5,13 +5,17 @@ const PangramFinder = function (phrase) {
 
 PangramFinder.prototype.isPangram = function () {
   let string = this.phrase.toLowerCase().replace(/[^a-z]/g,'').split('');
-  const alphabetCheck = [];
+  alphabetCheck = [];
   string.forEach((character) => {
     if (!alphabetCheck.includes(character)){
       alphabetCheck.push(character);
     }
   });
-  if (alphabetCheck.length === 26) {
+  return this.checkResult();
+};
+
+PangramFinder.prototype.checkResult = function (){
+  if (alphabetCheck.length === this.alphabet.length) {
     return true;
   } else {
     return false

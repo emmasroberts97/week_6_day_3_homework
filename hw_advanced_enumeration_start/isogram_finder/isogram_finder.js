@@ -4,8 +4,8 @@ const IsogramFinder = function (word) {
 
 IsogramFinder.prototype.isIsogram = function () {
   let string = this.word.toLowerCase().split('');
-  let isogramCheckerFalse = [];
-  let isogramCheckerTrue = [];
+  isogramCheckerFalse = [];
+  isogramCheckerTrue = [];
   string.forEach((character) => {
     if (!isogramCheckerTrue.includes(character)){
       isogramCheckerTrue.push(character);
@@ -13,6 +13,10 @@ IsogramFinder.prototype.isIsogram = function () {
       isogramCheckerFalse.push(character);
     };
   });
+  return this.checkResult();
+};
+
+IsogramFinder.prototype.checkResult = function () {
   if (isogramCheckerFalse.length === 0) {
     return true;
   } else {

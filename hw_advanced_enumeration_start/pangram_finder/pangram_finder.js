@@ -6,31 +6,9 @@ const PangramFinder = function (phrase) {
 PangramFinder.prototype.isPangram = function () {
   let string = this.phrase.toLowerCase().replace(/[^a-z]/g,'').split('');
   result = this.alphabet.every((letter) => {
-    if (string.includes(letter)){
-      return true;
-    } else {
-      return false;
-    };
+    return string.includes(letter)
   });
   return result;
 };
-// PangramFinder.prototype.isPangram = function () {
-//   let string = this.phrase.toLowerCase().replace(/[^a-z]/g,'').split('');
-//   alphabetCheck = [];
-//   string.forEach((character) => {
-//     if (!alphabetCheck.includes(character)){
-//       alphabetCheck.push(character);
-//     }
-//   });
-//   return this.checkResult();
-// };
-//
-// PangramFinder.prototype.checkResult = function (){
-//   if (alphabetCheck.length === this.alphabet.length) {
-//     return true;
-//   } else {
-//     return false
-//   };
-// };
 
 module.exports = PangramFinder;
